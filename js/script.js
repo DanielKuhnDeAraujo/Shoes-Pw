@@ -5,7 +5,7 @@ const products = {
         name: 'Tênis Runner Pro',
         price: 299.90,
         originalPrice: 399.90,
-        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fproex.ufpa.br%2Fgaleria-de-imagens%2F37-galeria-1%2F41-imagem-3-titulo-com-ate-45-caracteres&psig=AOvVaw1bOlVrIIBwLLMD9oQQZDll&ust=1763042513453000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDv3Kfj7JADFQAAAAAdAAAAABAE',
+        image: 'img/tenis.png',
         description: 'Tênis profissional para corrida com tecnologia de amortecimento avançada.',
         rating: 5,
         reviews: 127,
@@ -17,7 +17,7 @@ const products = {
         id: 'urban-style',
         name: 'Tênis Urban Style',
         price: 199.90,
-        image: 'fas fa-walking',
+        image: 'img/urban.png',
         description: 'Design moderno e confortável para uso diário na cidade.',
         rating: 4,
         reviews: 89,
@@ -29,7 +29,7 @@ const products = {
         id: 'fashion-elite',
         name: 'Tênis Fashion Elite',
         price: 349.90,
-        image: 'fas fa-star',
+        image: 'img/fashion.png',
         description: 'Tendência em calçados com design exclusivo e materiais premium.',
         rating: 5,
         reviews: 203,
@@ -215,7 +215,7 @@ function updateCartUI() {
                         <div class="row align-items-center">
                             <div class="col-md-2 col-12 text-center mb-2 mb-md-0">
                                 <div style="font-size: 2rem; color: var(--primary-color);">
-                                    <img src="${item.image}" >
+                                    <img src="${item.image} "style="width:100px" >
                                 </div>
                             </div>
                             <div class="col-md-4 col-12 mb-2 mb-md-0">
@@ -468,11 +468,11 @@ function loadProducts() {
              data-colors="${product.colors.join(',')}"
              data-sizes="${product.sizes.join(',')}">
             <div class="card product-card h-100">
-                <div class="product-image">
-                    <img src="${product.image}">
+                <div class="product-image" >
+                    <img src="${product.image} "style="width:300px" >
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">${product.name}</h5>
+                    <h5 class="card-title">${product.name}</h5> 
                     <p class="card-text">${product.description}</p>
                     <div class="mb-2">
                         <span class="h5 text-danger">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
