@@ -5,7 +5,7 @@ const products = {
         name: 'Tênis Runner Pro',
         price: 299.90,
         originalPrice: 399.90,
-        image: 'fas fa-running',
+        image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fproex.ufpa.br%2Fgaleria-de-imagens%2F37-galeria-1%2F41-imagem-3-titulo-com-ate-45-caracteres&psig=AOvVaw1bOlVrIIBwLLMD9oQQZDll&ust=1763042513453000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDv3Kfj7JADFQAAAAAdAAAAABAE',
         description: 'Tênis profissional para corrida com tecnologia de amortecimento avançada.',
         rating: 5,
         reviews: 127,
@@ -215,7 +215,7 @@ function updateCartUI() {
                         <div class="row align-items-center">
                             <div class="col-md-2 col-12 text-center mb-2 mb-md-0">
                                 <div style="font-size: 2rem; color: var(--primary-color);">
-                                    <i >${item.image}</i>
+                                    <img src="${item.image}" >
                                 </div>
                             </div>
                             <div class="col-md-4 col-12 mb-2 mb-md-0">
