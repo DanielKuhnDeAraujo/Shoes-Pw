@@ -469,7 +469,7 @@ function loadProducts() {
              data-sizes="${product.sizes.join(',')}">
             <div class="card product-card h-100">
                 <div class="product-image">
-                    <i class="${product.image}"></i>
+                    <img src="${product.image}">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${product.name}</h5>
