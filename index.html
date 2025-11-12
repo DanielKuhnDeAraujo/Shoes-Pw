@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoeTech - Encontre o Par Perfeito para o Seu Estilo!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-shoe-prints me-2"></i>ShoeTech
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Loja</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="promotions.html">Promoções</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contato</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <div class="input-group me-3" style="width: 250px;">
+                        <input type="text" class="form-control" placeholder="Buscar tênis...">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="social-icons me-3">
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    
+                    <button class="btn btn-outline-dark position-relative" onclick="openCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            0
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-4">Encontre o Par Perfeito para o Seu Estilo!</h1>
+                        <p class="lead mb-4">Descubra nossa coleção exclusiva de tênis com tecnologia avançada, design moderno e conforto incomparável.</p>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a class="btn btn-custom btn-lg" href="shop.html">Veja Nossos Modelos</a>
+                            <a class="btn btn-outline-custom btn-lg" href="shop.html">Compre Agora</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div style="font-size: 15rem; color: rgba(255,255,255,0.3);">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Carousel -->
+    <section class="page-section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Ofertas Especiais</h2>
+            <div id="offersCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="text-center">
+                            <h3><i class="fas fa-fire me-2"></i>Compre 1, Leve 2!</h3>
+                            <p class="mb-0">Na compra de qualquer tênis, leve outro com 50% de desconto</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="text-center">
+                            <h3><i class="fas fa-percentage me-2"></i>30% OFF em Tênis Selecionados</h3>
+                            <p class="mb-0">Desconto especial em nossa linha premium de tênis esportivos</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="text-center">
+                            <h3><i class="fas fa-gift me-2"></i>Frete Grátis</h3>
+                            <p class="mb-0">Em compras acima de R$ 199,00 para todo o Brasil</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#offersCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#offersCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title text-center">Novidades</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="product-image">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Tênis para Corrida</h5>
+                            <p class="card-text">Tecnologia avançada para máximo desempenho</p>
+                            <div class="mb-2">
+                                <span class="h4 text-danger">R$ 299,90</span>
+                                <small class="text-muted text-decoration-line-through ms-2">R$ 399,90</small>
+                            </div>
+                            <button class="btn btn-custom" onclick="addToCart('corrida')">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="product-image">
+                            <i class="fas fa-walking"></i>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Tênis Casuais</h5>
+                            <p class="card-text">Estilo e conforto para o dia a dia</p>
+                            <div class="mb-2">
+                                <span class="h4 text-danger">R$ 199,90</span>
+                            </div>
+                            <button class="btn btn-custom" onclick="addToCart('casuais')">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card product-card h-100">
+                        <div class="product-image">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Tênis de Moda</h5>
+                            <p class="card-text">Tendências atuais em design exclusivo</p>
+                            <div class="mb-2">
+                                <span class="h4 text-danger">R$ 249,90</span>
+                            </div>
+                            <button class="btn btn-custom" onclick="addToCart('moda')">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="page-section bg-light">
+        <div class="container">
+            <h2 class="section-title text-center">Veja o que nossos clientes dizem!</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h5>Maria Silva</h5>
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>"Comprei meu tênis de corrida aqui e estou impressionada com a qualidade! Super confortável e resistente."</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h5>João Santos</h5>
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>"Atendimento excelente e entrega super rápida. Recomendo a ShoeTech para todos os meus amigos!"</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h5>Ana Costa</h5>
+                        <div class="mb-2">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p>"Variedade incrível de modelos e preços justos. Já comprei 3 pares e todos de excelente qualidade!"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="page-section">
+        <div class="container">
+            <h2 class="section-title text-center">Nossos Diferenciais</h2>
+            <div class="row">
+                <div class="col-md-2 col-6 text-center mb-4">
+                    <div class="benefit-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h6>Qualidade Garantida</h6>
+                </div>
+                <div class="col-md-2 col-6 text-center mb-4">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h6>Entrega Rápida</h6>
+                </div>
+                <div class="col-md-2 col-6 text-center mb-4">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h6>Pagamentos Seguros</h6>
+                </div>
+                <div class="col-md-2 col-6 text-center mb-4">
+                    <div class="benefit-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h6>Trocas Fáceis</h6>
+                </div>
+                <div class="col-md-2 col-6 text-center mb-4">
+                    <div class="benefit-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h6>Desconto Primeira Compra</h6>
+                </div>
+                <div class="col-md-2 col-6 text-center mb-4">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h6>Suporte 24/7</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>ShoeTech</h5>
+                    <p>Encontre o par perfeito para o seu estilo. Qualidade, conforto e inovação em cada produto.</p>
+                    <div class="social-icons">
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6>Links Úteis</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html" class="text-light text-decoration-none">Sobre Nós</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Termos e Condições</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Política de Privacidade</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Trocas e Devoluções</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6>Atendimento</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="contact.html" class="text-light text-decoration-none">Contato</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Rastrear Pedido</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Suporte</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6>Newsletter</h6>
+                    <p>Receba descontos exclusivos e novidades!</p>
+                    <form class="d-flex" onsubmit="event.preventDefault(); alert('Obrigado! Você receberá nossas novidades em breve.');">
+                        <input type="email" class="form-control me-2" placeholder="Seu e-mail" required>
+                        <button class="btn btn-custom" type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 ShoeTech. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Desenvolvido com <i class="fas fa-heart text-danger"></i> para você</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shopping-cart me-2"></i>Meu Carrinho
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cart-items">
+                        <!-- Cart items will be populated here -->
+                    </div>
+                    <div id="empty-cart" class="text-center py-5" style="display: none;">
+                        <i class="fas fa-shopping-cart text-muted" style="font-size: 4rem;"></i>
+                        <h4 class="text-muted mt-3">Seu carrinho está vazio</h4>
+                        <p class="text-muted">Adicione alguns produtos incríveis!</p>
+                        <button class="btn btn-custom" data-bs-dismiss="modal" onclick="window.location.href='shop.html'">
+                            Ir às Compras
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer" id="cart-footer">
+                    <div class="w-100">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <h4 class="mb-0">Total: <span id="cart-total" class="text-danger">R$ 0,00</span></h4>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <button type="button" class="btn btn-outline-secondary me-2" onclick="clearCart()">
+                                    Limpar Carrinho
+                                </button>
+                                <button type="button" class="btn btn-custom btn-lg" onclick="checkout()">
+                                    <i class="fas fa-credit-card me-2"></i>Finalizar Compra
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
