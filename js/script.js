@@ -41,7 +41,7 @@ const products = {
         id: 'sport-max',
         name: 'Tênis Sport Max',
         price: 279.90,
-        image: 'fas fa-basketball-ball',
+        image: 'img/sport.png',
         description: 'Ideal para atividades esportivas com máximo suporte e flexibilidade.',
         rating: 4,
         reviews: 156,
