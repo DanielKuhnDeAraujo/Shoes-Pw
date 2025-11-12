@@ -148,7 +148,7 @@ function addToCart(productId) {
 
     // Check if product already exists in cart
     const existingItem = cart.find(item => item.id === productId);
-    
+
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
@@ -206,7 +206,7 @@ function updateCartUI() {
         if (emptyCart) emptyCart.style.display = 'none';
         if (cartItems) cartItems.style.display = 'block';
         if (cartFooter) cartFooter.style.display = 'block';
-        
+
         // Update cart items
         if (cartItems) {
             cartItems.innerHTML = cart.map(item => `
@@ -215,7 +215,7 @@ function updateCartUI() {
                         <div class="row align-items-center">
                             <div class="col-md-2 col-12 text-center mb-2 mb-md-0">
                                 <div style="font-size: 2rem; color: var(--primary-color);">
-                                    <i class="${item.image}"></i>
+                                    <i >${item.image}</i>
                                 </div>
                             </div>
                             <div class="col-md-4 col-12 mb-2 mb-md-0">
@@ -268,7 +268,7 @@ function openCart() {
 
 function clearCart() {
     if (cart.length === 0) return;
-    
+
     if (confirm('Tem certeza que deseja limpar o carrinho?')) {
         cart = [];
         updateCartUI();
@@ -284,9 +284,9 @@ function checkout() {
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-    
+
     alert(`🛒 Finalizando compra!\n\n📦 ${itemCount} item(s) no carrinho\n💰 Total: R$ ${total.toFixed(2).replace('.', ',')}\n\n✅ Redirecionando para o pagamento...`);
-    
+
     // Simulate checkout process
     setTimeout(() => {
         cart = [];
@@ -304,11 +304,11 @@ function showToast(message, type = 'success') {
     // Remove existing toasts
     const existingToasts = document.querySelectorAll('.alert[style*="z-index: 9999"]');
     existingToasts.forEach(toast => toast.remove());
-    
+
     const toast = document.createElement('div');
     const bgClass = type === 'success' ? 'alert-success' : type === 'warning' ? 'alert-warning' : type === 'info' ? 'alert-info' : 'alert-danger';
     const icon = type === 'success' ? 'fa-check-circle' : type === 'warning' ? 'fa-exclamation-triangle' : type === 'info' ? 'fa-info-circle' : 'fa-times-circle';
-    
+
     toast.className = `position-fixed top-0 end-0 m-3 alert ${bgClass} alert-dismissible fade show`;
     toast.style.zIndex = '9999';
     toast.innerHTML = `
@@ -316,7 +316,7 @@ function showToast(message, type = 'success') {
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
     `;
     document.body.appendChild(toast);
-    
+
     setTimeout(() => {
         if (toast.parentNode) {
             toast.parentNode.removeChild(toast);
@@ -328,30 +328,30 @@ function showToast(message, type = 'success') {
 function initializeSearch() {
     const searchButtons = document.querySelectorAll('.btn-outline-secondary');
     const searchInputs = document.querySelectorAll('input[placeholder="Buscar tênis..."]');
-    
+
     if (searchButtons.length === 0 || searchInputs.length === 0) {
         console.log('Elementos de busca não encontrados');
         return;
     }
-    
+
     searchButtons.forEach((button, index) => {
         const searchInput = searchInputs[index];
-        
+
         if (button && searchInput) {
             // Remove existing event listeners
             const newButton = button.cloneNode(true);
             button.parentNode.replaceChild(newButton, button);
-            
+
             const newInput = searchInput.cloneNode(true);
             searchInput.parentNode.replaceChild(newInput, searchInput);
-            
+
             // Click event
-            newButton.addEventListener('click', function() {
+            newButton.addEventListener('click', function () {
                 performSearch(newInput.value);
             });
 
             // Enter key event
-            newInput.addEventListener('keypress', function(e) {
+            newInput.addEventListener('keypress', function (e) {
                 if (e.key === 'Enter') {
                     performSearch(this.value);
                 }
@@ -362,14 +362,14 @@ function initializeSearch() {
 
 function performSearch(searchTerm) {
     const term = searchTerm.trim().toLowerCase();
-    
+
     if (!term) {
         showToast('Digite algo para pesquisar!', 'warning');
         return;
     }
-    
+
     console.log('Realizando busca por:', term);
-    
+
     // If we're on the shop page, filter products
     if (window.location.pathname.includes('shop.html') || document.querySelector('.filter-section')) {
         filterProductsBySearch(term);
@@ -382,13 +382,13 @@ function performSearch(searchTerm) {
 function filterProductsBySearch(searchTerm) {
     const productItems = document.querySelectorAll('.product-item');
     let foundResults = false;
-    
+
     productItems.forEach(item => {
         const title = item.querySelector('.card-title').textContent.toLowerCase();
-        
+
         // Busca apenas no título do produto
         const matches = title.includes(searchTerm);
-        
+
         if (matches) {
             item.style.display = 'block';
             foundResults = true;
@@ -396,7 +396,7 @@ function filterProductsBySearch(searchTerm) {
             item.style.display = 'none';
         }
     });
-    
+
     // Show message if no results found
     const noResultsMessage = document.getElementById('no-results-message');
     if (!foundResults) {
@@ -425,12 +425,12 @@ function clearSearch() {
     searchInputs.forEach(input => {
         input.value = '';
     });
-    
+
     const productItems = document.querySelectorAll('.product-item');
     productItems.forEach(item => {
         item.style.display = 'block';
     });
-    
+
     const noResultsMessage = document.getElementById('no-results-message');
     if (noResultsMessage) {
         noResultsMessage.remove();
@@ -442,7 +442,7 @@ function checkUrlSearchParam() {
     if (window.location.pathname.includes('shop.html')) {
         const urlParams = new URLSearchParams(window.location.search);
         const searchParam = urlParams.get('search');
-        
+
         if (searchParam) {
             const searchInputs = document.querySelectorAll('input[placeholder="Buscar tênis..."]');
             searchInputs.forEach(input => {
@@ -460,7 +460,7 @@ function loadProducts() {
 
     // Convert products object to array for the shop
     const productsArray = Object.values(products);
-    
+
     productsGrid.innerHTML = productsArray.map(product => `
         <div class="col-md-4 mb-4 product-item" 
              data-category="${product.category}"
@@ -505,30 +505,30 @@ function initializeFilters() {
     const priceSelect = document.querySelectorAll('select')[1];
     const sizeSelect = document.querySelectorAll('select')[2];
     const colorSelect = document.querySelectorAll('select')[3];
-    
+
     if (!categorySelect) return;
-    
+
     function applyFilters() {
         const selectedCategory = categorySelect.value;
         const selectedPrice = priceSelect.value;
         const selectedSize = sizeSelect.value;
         const selectedColor = colorSelect.value;
-        
+
         const productItems = document.querySelectorAll('.product-item');
-        
+
         productItems.forEach(item => {
             const category = item.getAttribute('data-category');
             const price = parseFloat(item.getAttribute('data-price'));
             const colors = item.getAttribute('data-colors').split(',');
             const sizes = item.getAttribute('data-sizes').split(',');
-            
+
             let categoryMatch = selectedCategory === 'Todos os Tênis' || category === selectedCategory;
             let priceMatch = true;
             let sizeMatch = selectedSize === 'Todos os Tamanhos' || sizes.includes(selectedSize);
             let colorMatch = selectedColor === 'Todas as Cores' || colors.includes(selectedColor);
-            
+
             // Aplicar filtro de preço
-            switch(selectedPrice) {
+            switch (selectedPrice) {
                 case 'Até R$ 150':
                     priceMatch = price <= 150;
                     break;
@@ -544,18 +544,18 @@ function initializeFilters() {
                 default:
                     priceMatch = true;
             }
-            
+
             // Mostrar/ocultar baseado em todos os filtros
             const shouldShow = categoryMatch && priceMatch && sizeMatch && colorMatch;
             item.style.display = shouldShow ? 'block' : 'none';
         });
     }
-    
+
     // Adicionar event listeners a todos os selects
     [categorySelect, priceSelect, sizeSelect, colorSelect].forEach(select => {
         select.addEventListener('change', applyFilters);
     });
-    
+
     // Adicionar botão de limpar filtros
     if (!document.querySelector('#clear-filters')) {
         const filterSection = document.querySelector('.filter-section');
@@ -576,7 +576,7 @@ function clearAllFilters() {
     selects.forEach(select => {
         select.selectedIndex = 0;
     });
-    
+
     const productItems = document.querySelectorAll('.product-item');
     productItems.forEach(item => {
         item.style.display = 'block';
@@ -584,11 +584,11 @@ function clearAllFilters() {
 }
 
 // Initialize everything when page loads
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     updateCartUI();
     initializeSearch();
     checkUrlSearchParam();
-    
+
     // Initialize shop if on shop page
     if (window.location.pathname.includes('shop.html') || document.querySelector('.filter-section')) {
         loadProducts();
