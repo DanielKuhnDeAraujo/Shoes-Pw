@@ -65,7 +65,7 @@ const products = {
         id: 'jordan-rico',
         name: 'Tênis Air Jordão : Rich Edition',
         price: 999.90,
-        image: 'fas fa-basketball-ball',
+        image: 'rico/png',
         description: 'Ideal para fingir que faz atividades esportivas e ostentação de herança',
         rating: 5,
         reviews: 5,
@@ -102,7 +102,7 @@ const products = {
         name: 'Tênis para Corrida',
         price: 299.90,
         originalPrice: 399.90,
-        image: 'fas fa-running',
+        image: '/img/corridaind.png',
         description: 'Tecnologia avançada para máximo desempenho',
         rating: 5,
         reviews: 215,
@@ -112,9 +112,9 @@ const products = {
     },
     'casuais': {
         id: 'casuais',
-        name: 'Tênis Casuais',
+        name: 'Tênis Casual',
         price: 199.90,
-        image: 'fas fa-walking',
+        image: '/img/casuali.png',
         description: 'Estilo e conforto para o dia a dia',
         rating: 4,
         reviews: 167,
@@ -126,7 +126,7 @@ const products = {
         id: 'moda',
         name: 'Tênis de Moda',
         price: 249.90,
-        image: 'fas fa-star',
+        image: 'img/moda.png',
         description: 'Tendências atuais em design exclusivo',
         rating: 5,
         reviews: 142,
@@ -136,8 +136,30 @@ const products = {
     }
 };
 
-// Cart functionality
-let cart = [];
+// Cart functionality with localStorage
+let cart = loadCartFromStorage();
+
+// Load cart from localStorage
+function loadCartFromStorage() {
+    try {
+        const savedCart = localStorage.getItem('tenisStoreCart');
+        if (savedCart) {
+            return JSON.parse(savedCart);
+        }
+    } catch (error) {
+        console.error('Erro ao carregar carrinho do localStorage:', error);
+    }
+    return [];
+}
+
+// Save cart to localStorage
+function saveCartToStorage() {
+    try {
+        localStorage.setItem('tenisStoreCart', JSON.stringify(cart));
+    } catch (error) {
+        console.error('Erro ao salvar carrinho no localStorage:', error);
+    }
+}
 
 function addToCart(productId) {
     const product = products[productId];
@@ -158,12 +180,14 @@ function addToCart(productId) {
         });
     }
 
+    saveCartToStorage();
     updateCartUI();
     showToast('Produto adicionado ao carrinho!', 'success');
 }
 
 function removeFromCart(productId) {
     cart = cart.filter(item => item.id !== productId);
+    saveCartToStorage();
     updateCartUI();
     showToast('Produto removido do carrinho!', 'info');
 }
@@ -177,6 +201,7 @@ function updateQuantity(productId, newQuantity) {
     const item = cart.find(item => item.id === productId);
     if (item) {
         item.quantity = newQuantity;
+        saveCartToStorage();
         updateCartUI();
     }
 }
@@ -215,7 +240,7 @@ function updateCartUI() {
                         <div class="row align-items-center">
                             <div class="col-md-2 col-12 text-center mb-2 mb-md-0">
                                 <div style="font-size: 2rem; color: var(--primary-color);">
-                                    <img src="${item.image} "style="width:100px" >
+                                    <img src="${item.image}" style="width:100px">
                                 </div>
                             </div>
                             <div class="col-md-4 col-12 mb-2 mb-md-0">
@@ -271,6 +296,7 @@ function clearCart() {
 
     if (confirm('Tem certeza que deseja limpar o carrinho?')) {
         cart = [];
+        saveCartToStorage();
         updateCartUI();
         showToast('Carrinho limpo!', 'info');
     }
@@ -290,6 +316,7 @@ function checkout() {
     // Simulate checkout process
     setTimeout(() => {
         cart = [];
+        saveCartToStorage();
         updateCartUI();
         const cartModal = document.getElementById('cartModal');
         if (cartModal) {
@@ -468,8 +495,8 @@ function loadProducts() {
              data-colors="${product.colors.join(',')}"
              data-sizes="${product.sizes.join(',')}">
             <div class="card product-card h-100">
-                <div class="product-image" >
-                    <img src="${product.image} "style="width:300px" >
+                <div class="product-image">
+                    <img src="${product.image}" style="width:300px">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${product.name}</h5> 
