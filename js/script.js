@@ -53,7 +53,7 @@ const products = {
         id: 'jordan',
         name: 'Tênis Air Jordão : Pobre Edition',
         price: 99.90,
-        image: 'fas fa-basketball-ball',
+        image: 'img/pobre.png',
         description: 'Ideal para atividades esportivas se o seu orçamento não permite um produto superior',
         rating: 3,
         reviews: 125,
@@ -65,7 +65,7 @@ const products = {
         id: 'jordan-rico',
         name: 'Tênis Air Jordão : Rich Edition',
         price: 999.90,
-        image: 'rico/png',
+        image: 'img/rico.png',
         description: 'Ideal para fingir que faz atividades esportivas e ostentação de herança',
         rating: 5,
         reviews: 5,
@@ -102,7 +102,7 @@ const products = {
         name: 'Tênis para Corrida',
         price: 299.90,
         originalPrice: 399.90,
-        image: '/img/corridaind.png',
+        image: 'img/corridaind.png',
         description: 'Tecnologia avançada para máximo desempenho',
         rating: 5,
         reviews: 215,
@@ -114,7 +114,7 @@ const products = {
         id: 'casuais',
         name: 'Tênis Casual',
         price: 199.90,
-        image: '/img/casuali.png',
+        image: 'img/casuali.png',
         description: 'Estilo e conforto para o dia a dia',
         rating: 4,
         reviews: 167,
@@ -496,7 +496,7 @@ function loadProducts() {
              data-sizes="${product.sizes.join(',')}">
             <div class="card product-card h-100">
                 <div class="product-image">
-                    <img src="${product.image}" style="width:300px">
+                    <img src="${product.image}" style="width:300px; ">
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">${product.name}</h5> 
