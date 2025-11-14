@@ -518,7 +518,6 @@ function loadProducts() {
                     </div>
                     <div class="d-grid gap-2">
                         <button class="btn btn-custom" onclick="addToCart('${product.id}')">Adicionar ao Carrinho</button>
-                        <button class="btn btn-outline-secondary">Ver Detalhes</button>
                     </div>
                 </div>
             </div>
