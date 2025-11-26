@@ -1,3 +1,15 @@
+
+window.onload = function() {
+            if (window.location.pathname.includes('shop.html?search=') || document.querySelector('.filter-section')) {
+                
+                 // Cria um objeto URLSearchParams com base na query string da URL atual
+                const params = new URLSearchParams(window.location.search);
+
+            // Obtém os valores dos parâmetros pelos seus nomes ('nome' e 'email')
+                const term = params.get('search');
+                filterProductsBySearch(term);
+            }
+}
 // Product database
 const products = {
     'runner-pro': {
@@ -400,6 +412,7 @@ function performSearch(searchTerm) {
     // If we're on the shop page, filter products
     if (window.location.pathname.includes('shop.html') || document.querySelector('.filter-section')) {
         filterProductsBySearch(term);
+        window.location.href = `shop.html?search=${encodeURIComponent(term)}`;
     } else {
         // If not on shop page, redirect to shop page with search parameter
         window.location.href = `shop.html?search=${encodeURIComponent(term)}`;
