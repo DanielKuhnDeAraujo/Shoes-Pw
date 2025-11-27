@@ -82,7 +82,7 @@
                             <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="name" class="form-label">Nome Completo *</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Nome" required>
+                                        <input type="text" class="form-control" id="name" name="nome" placeholder="Nome" required>
                                         <div class="valid-feedback">
                                             Perfeito!
                                         </div>
@@ -93,7 +93,7 @@
                                     
                                     <div class="col-md-6 mb-3">
                                         <label for="email" class="form-label">E-mail *</label>
-                                        <input type="email" class="form-control" id="email" required>
+                                        <input type="email" class="form-control" name="email" id="email" required>
                                         <div class="valid-feedback">
                                             Perfeito!
                                         </div>
@@ -105,7 +105,7 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="phone" class="form-label">Telefone </label>
-                                        <input type="tel" class="form-control" id="phone" placeholder="(11) 99999-9999"  maxlength="15" required>
+                                        <input type="tel" class="form-control" name="tel" id="phone" placeholder="(11) 99999-9999"  maxlength="15" required>
                                         <div class="valid-feedback">
                                             Perfeito!
                                         </div>
@@ -115,14 +115,14 @@
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="subject" class="form-label">Assunto *</label>
-                                        <select class="form-select" id="subject" required>
+                                        <select class="form-select" name="assunto" id="subject" required>
                                             <option value="">Selecione um assunto</option>
-                                            <option value="duvida">Dúvida sobre produto</option>
-                                            <option value="pedido">Acompanhar pedido</option>
-                                            <option value="troca">Troca/Devolução</option>
-                                            <option value="sugestao">Sugestão</option>
-                                            <option value="reclamacao">Reclamação</option>
-                                            <option value="outro">Outro</option>
+                                            <option value="Dúvida sobre produto">Dúvida sobre produto</option>
+                                            <option value="Acompanhar pedido">Acompanhar pedido</option>
+                                            <option value="Troca/Devolução">Troca/Devolução</option>
+                                            <option value="Sugestão">Sugestão</option>
+                                            <option value="Reclamacão">Reclamação</option>
+                                            <option value="Outro">Outro</option>
                                         </select>
                                         <div class="valid-feedback">
                                             Perfeito!
@@ -135,7 +135,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <label for="cep" class="form-label">CEP </label>
-                                        <input type="text" class="form-control" id="cep" placeholder="00000-000"  maxlength="9" required>
+                                        <input type="text" class="form-control" name="cep" id="cep" placeholder="00000-000"  maxlength="9" required>
                                         <div class="valid-feedback">
                                             Perfeito!
                                         </div>
@@ -146,7 +146,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="message" class="form-label">Mensagem *</label>
-                                    <textarea class="form-control" id="message" rows="5" placeholder="Descreva sua dúvida ou mensagem..." required></textarea>
+                                    <textarea class="form-control" name="msg" id="message" rows="5" placeholder="Descreva sua dúvida ou mensagem..." required></textarea>
                                     <div class="valid-feedback">
                                             Perfeito!
                                         </div>
@@ -222,7 +222,52 @@
     </section>
 
     <!-- Footer -->
-    <!-- ... mesmo footer do index.html ... -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>ShoeTech</h5>
+                    <p>Encontre o par perfeito para o seu estilo. Qualidade, conforto e inovação em cada produto.</p>
+                    <div class="social-icons">
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                </div>
+                <!-- <div class="col-md-2 mb-4">
+                    <h6>Atendimento</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="contact.html" class="text-light text-decoration-none">Contato</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Rastrear Pedido</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Suporte</a></li>
+                    </ul>
+                </div> -->
+                <div class="col-md-6 mb-4">
+                    <h6>Newsletter</h6>
+                    <p>Receba descontos exclusivos e novidades!</p>
+                    <form class="d-flex" onsubmit="event.preventDefault(); alert('Obrigado! Você receberá nossas novidades em breve.');">
+                        <input type="email" class="form-control me-2" placeholder="Seu e-mail" required>
+                        <button class="btn btn-custom" type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 ShoeTech. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Desenvolvido com <i class="fas fa-heart text-danger"></i> para você</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <div class="modal fade" id="cartModal" tabindex="-1">
         <div class="modal-dialog modal-lg">
