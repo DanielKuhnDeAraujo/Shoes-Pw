@@ -92,36 +92,52 @@
     </section>
 
     <!-- Offers Carousel -->
-    <section class="page-section bg-light">
+    <section class="page-section bg-light" id="offers">
         <div class="container">
             <h2 class="section-title text-center">Ofertas Especiais</h2>
-            <div id="offersCarousel" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="text-center">
-                            <h3><i class="fas fa-fire me-2"></i>Compre 1, Leve 2!</h3>
-                            <p class="mb-0">Na compra de qualquer tênis, leve outro com 50% de desconto</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="text-center">
-                            <h3><i class="fas fa-percentage me-2"></i>30% OFF em Tênis Selecionados</h3>
-                            <p class="mb-0">Desconto especial em nossa linha premium de tênis esportivos</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="text-center">
-                            <h3><i class="fas fa-gift me-2"></i>Frete Grátis</h3>
-                            <p class="mb-0">Em compras acima de R$ 199,00 para todo o Brasil</p>
-                        </div>
-                    </div>
+
+            <!-- Carrossel Bootstrap -->
+            <div id="offersCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+            
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#offersCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Oferta 1"></button>
+                <button type="button" data-bs-target="#offersCarousel" data-bs-slide-to="1" aria-label="Oferta 2"></button>
+                <button type="button" data-bs-target="#offersCarousel" data-bs-slide-to="2" aria-label="Oferta 3"></button>
+            </div>
+
+            <!-- Slides -->
+            <div class="carousel-inner rounded-3 overflow-hidden">
+                
+                <div class="carousel-item active">
+                <div class="carousel-content">
+                    <h3><i class="fas fa-fire me-2"></i>Compre 1, Leve 2!</h3>
+                    <p class="mb-0">Na compra de qualquer tênis, leve outro com 50% de desconto</p>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#offersCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#offersCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </button>
+                </div>
+
+                <div class="carousel-item">
+                <div class="carousel-content">
+                    <h3><i class="fas fa-percentage me-2"></i>30% OFF em Tênis Selecionados</h3>
+                    <p class="mb-0">Desconto especial em nossa linha premium de tênis esportivos</p>
+                </div>
+                </div>
+
+                <div class="carousel-item">
+                <div class="carousel-content">
+                    <h3><i class="fas fa-gift me-2"></i>Frete Grátis</h3>
+                    <p class="mb-0">Em compras acima de R$ 199,00 para todo o Brasil</p>
+                </div>
+                </div>
+            </div>
+
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#offersCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#offersCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
             </div>
         </div>
     </section>
