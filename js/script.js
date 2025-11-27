@@ -20,6 +20,7 @@ window.onload = function () {
         const cep = params.get('cep');
         const assunto = params.get('assunto');
         const msg = params.get('msg');
+        const tel = params.get('tel');
 
         // Exibe os valores nos elementos HTML correspondentes
 
@@ -36,6 +37,9 @@ window.onload = function () {
         }
         if (assunto) {
             document.getElementById('assunto').innerText = assunto;
+        }
+        if (tel) {
+            document.getElementById('tel').innerText = tel;
         }
     }
 };
