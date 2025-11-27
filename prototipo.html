@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoeTech - Encontre o Par Perfeito para o Seu Estilo!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #e74c3c;
+            --light-gray: #ecf0f1;
+            --dark-gray: #95a5a6;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 Q50,5 80,20 Q95,50 80,80 Q50,95 20,80 Q5,50 20,20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-custom {
+            background-color: var(--accent-color);
+            border: none;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        .btn-outline-custom {
+            border: 2px solid white;
+            color: white;
+            padding: 12px 30px;
+            font-weight: 600;
+            border-radius: 25px;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-custom:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .product-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--light-gray), #bdc3c7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--dark-gray);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            margin: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--accent-color), #e67e22);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+
+        .footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .social-icons a {
+            color: var(--dark-gray);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer .social-icons a {
+            color: white;
+        }
+
+        .footer .social-icons a:hover {
+            color: var(--accent-color);
+        }
+
+        .navbar-toggler {
+            border: none;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .carousel-item {
+            background: linear-gradient(135deg, var(--accent-color), #e67e22);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 0 10px;
+        }
+
+        .page-section {
+            padding: 4rem 0;
+        }
+
+        .filter-section {
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .blog-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .current-page {
+            display: block;
+        }
+
+        .hidden-page {
+            display: none;
+        }
+
+        .nav-link.active {
+            color: var(--accent-color) !important;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#" onclick="showPage('home')">
+                <i class="fas fa-shoe-prints me-2"></i>ShoeTech
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('about')">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('shop')">Loja</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('promotions')">Promoções</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('blog')">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="showPage('contact')">Contato</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center">
+                    <div class="input-group me-3" style="width: 250px;">
+                        <input type="text" class="form-control" placeholder="Buscar tênis...">
+                        <button class="btn btn-outline-secondary" type="button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="social-icons me-3">
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    
+                    <button class="btn btn-outline-dark position-relative" onclick="openCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-badge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            0
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home-page" class="current-page">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="hero-content">
+                            <h1 class="display-4 fw-bold mb-4">Encontre o Par Perfeito para o Seu Estilo!</h1>
+                            <p class="lead mb-4">Descubra nossa coleção exclusiva de tênis com tecnologia avançada, design moderno e conforto incomparável.</p>
+                            <div class="d-flex gap-3 flex-wrap">
+                                <button class="btn btn-custom btn-lg" onclick="showPage('shop')">Veja Nossos Modelos</button>
+                                <button class="btn btn-outline-custom btn-lg">Compre Agora</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <div style="font-size: 15rem; color: rgba(255,255,255,0.3);">
+                            <i class="fas fa-shoe-prints"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Offers Carousel -->
+        <section class="page-section bg-light">
+            <div class="container">
+                <h2 class="section-title text-center">Ofertas Especiais</h2>
+                <div id="offersCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="text-center">
+                                <h3><i class="fas fa-fire me-2"></i>Compre 1, Leve 2!</h3>
+                                <p class="mb-0">Na compra de qualquer tênis, leve outro com 50% de desconto</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="text-center">
+                                <h3><i class="fas fa-percentage me-2"></i>30% OFF em Tênis Selecionados</h3>
+                                <p class="mb-0">Desconto especial em nossa linha premium de tênis esportivos</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="text-center">
+                                <h3><i class="fas fa-gift me-2"></i>Frete Grátis</h3>
+                                <p class="mb-0">Em compras acima de R$ 199,00 para todo o Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#offersCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#offersCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="page-section">
+            <div class="container">
+                <h2 class="section-title text-center">Novidades</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Tênis para Corrida</h5>
+                                <p class="card-text">Tecnologia avançada para máximo desempenho</p>
+                                <div class="mb-2">
+                                    <span class="h4 text-danger">R$ 299,90</span>
+                                    <small class="text-muted text-decoration-line-through ms-2">R$ 399,90</small>
+                                </div>
+                                <button class="btn btn-custom" onclick="addToCart('corrida')">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="fas fa-walking"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Tênis Casuais</h5>
+                                <p class="card-text">Estilo e conforto para o dia a dia</p>
+                                <div class="mb-2">
+                                    <span class="h4 text-danger">R$ 199,90</span>
+                                </div>
+                                <button class="btn btn-custom" onclick="addToCart('casuais')">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Tênis de Moda</h5>
+                                <p class="card-text">Tendências atuais em design exclusivo</p>
+                                <div class="mb-2">
+                                    <span class="h4 text-danger">R$ 249,90</span>
+                                </div>
+                                <button class="btn btn-custom" onclick="addToCart('moda')">Adicionar ao Carrinho</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="page-section bg-light">
+            <div class="container">
+                <h2 class="section-title text-center">Veja o que nossos clientes dizem!</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h5>Maria Silva</h5>
+                            <div class="mb-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p>"Comprei meu tênis de corrida aqui e estou impressionada com a qualidade! Super confortável e resistente."</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h5>João Santos</h5>
+                            <div class="mb-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p>"Atendimento excelente e entrega super rápida. Recomendo a ShoeTech para todos os meus amigos!"</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <h5>Ana Costa</h5>
+                            <div class="mb-2">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p>"Variedade incrível de modelos e preços justos. Já comprei 3 pares e todos de excelente qualidade!"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section class="page-section">
+            <div class="container">
+                <h2 class="section-title text-center">Nossos Diferenciais</h2>
+                <div class="row">
+                    <div class="col-md-2 col-6 text-center mb-4">
+                        <div class="benefit-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h6>Qualidade Garantida</h6>
+                    </div>
+                    <div class="col-md-2 col-6 text-center mb-4">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h6>Entrega Rápida</h6>
+                    </div>
+                    <div class="col-md-2 col-6 text-center mb-4">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h6>Pagamentos Seguros</h6>
+                    </div>
+                    <div class="col-md-2 col-6 text-center mb-4">
+                        <div class="benefit-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h6>Trocas Fáceis</h6>
+                    </div>
+                    <div class="col-md-2 col-6 text-center mb-4">
+                        <div class="benefit-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <h6>Desconto Primeira Compra</h6>
+                    </div>
+                    <div class="col-md-2 col-6 text-center mb-4">
+                        <div class="benefit-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h6>Suporte 24/7</h6>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- SHOP PAGE -->
+    <div id="shop-page" class="hidden-page">
+        <section class="page-section">
+            <div class="container">
+                <h1 class="section-title text-center">Nossa Loja</h1>
+                
+                <!-- Filters -->
+                <div class="filter-section">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h6>Categoria</h6>
+                            <select class="form-select mb-3">
+                                <option>Todos os Tênis</option>
+                                <option>Tênis Casuais</option>
+                                <option>Tênis de Corrida</option>
+                                <option>Tênis de Moda</option>
+                                <option>Tênis Esportivos</option>
+                                <option>Tênis Femininos</option>
+                                <option>Tênis Masculinos</option>
+                                <option>Tênis Unissex</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <h6>Preço</h6>
+                            <select class="form-select mb-3">
+                                <option>Todos os Preços</option>
+                                <option>Até R$ 150</option>
+                                <option>R$ 150 - R$ 300</option>
+                                <option>R$ 300 - R$ 500</option>
+                                <option>Acima de R$ 500</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <h6>Tamanho</h6>
+                            <select class="form-select mb-3">
+                                <option>Todos os Tamanhos</option>
+                                <option>35-36</option>
+                                <option>37-38</option>
+                                <option>39-40</option>
+                                <option>41-42</option>
+                                <option>43-44</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <h6>Cor</h6>
+                            <select class="form-select mb-3">
+                                <option>Todas as Cores</option>
+                                <option>Preto</option>
+                                <option>Branco</option>
+                                <option>Azul</option>
+                                <option>Vermelho</option>
+                                <option>Cinza</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Tênis Runner Pro</h5>
+                                <p class="card-text">Tênis profissional para corrida com tecnologia de amortecimento avançada.</p>
+                                <div class="mb-2">
+                                    <span class="h5 text-danger">R$ 299,90</span>
+                                    <small class="text-muted text-decoration-line-through ms-2">R$ 399,90</small>
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <small class="text-muted">(127 avaliações)</small>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-custom" onclick="addToCart('runner-pro')">Adicionar ao Carrinho</button>
+                                    <button class="btn btn-outline-secondary">Ver Detalhes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="fas fa-walking"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Tênis Urban Style</h5>
+                                <p class="card-text">Design moderno e confortável para uso diário na cidade.</p>
+                                <div class="mb-2">
+                                    <span class="h5 text-danger">R$ 199,90</span>
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                    <small class="text-muted">(89 avaliações)</small>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-custom" onclick="addToCart('urban-style')">Adicionar ao Carrinho</button>
+                                    <button class="btn btn-outline-secondary">Ver Detalhes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Tênis Fashion Elite</h5>
+                                <p class="card-text">Tendência em calçados com design exclusivo e materiais premium.</p>
+                                <div class="mb-2">
+                                    <span class="h5 text-danger">R$ 349,90</span>
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <small class="text-muted">(203 avaliações)</small>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-custom" onclick="addToCart('fashion-elite')">Adicionar ao Carrinho</button>
+                                    <button class="btn btn-outline-secondary">Ver Detalhes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="fas fa-basketball-ball"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Tênis Sport Max</h5>
+                                <p class="card-text">Ideal para atividades esportivas com máximo suporte e flexibilidade.</p>
+                                <div class="mb-2">
+                                    <span class="h5 text-danger">R$ 279,90</span>
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                    <small class="text-muted">(156 avaliações)</small>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-custom" onclick="addToCart('sport-max')">Adicionar ao Carrinho</button>
+                                    <button class="btn btn-outline-secondary">Ver Detalhes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Tênis Feminino Deluxe</h5>
+                                <p class="card-text">Elegância e conforto especialmente desenvolvido para o público feminino.</p>
+                                <div class="mb-2">
+                                    <span class="h5 text-danger">R$ 229,90</span>
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <small class="text-muted">(178 avaliações)</small>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-custom" onclick="addToCart('feminino-deluxe')">Adicionar ao Carrinho</button>
+                                    <button class="btn btn-outline-secondary">Ver Detalhes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="product-image">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Tênis Training Force</h5>
+                                <p class="card-text">Resistente e versátil para treinos intensos e atividades fitness.</p>
+                                <div class="mb-2">
+                                    <span class="h5 text-danger">R$ 259,90</span>
+                                </div>
+                                <div class="mb-2">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <i class="far fa-star text-warning"></i>
+                                    <small class="text-muted">(94 avaliações)</small>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-custom" onclick="addToCart('training-force')">Adicionar ao Carrinho</button>
+                                    <button class="btn btn-outline-secondary">Ver Detalhes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <nav class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">Anterior</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Próximo</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about-page" class="hidden-page">
+        <section class="page-section">
+            <div class="container">
+                <h1 class="section-title text-center">Sobre a ShoeTech</h1>
+                
+                <div class="row mb-5">
+                    <div class="col-lg-6">
+                        <h3>Nossa História</h3>
+                        <p>A ShoeTech nasceu em 2018 com a missão de revolucionar o mercado de calçados esportivos no Brasil. Fundada por apaixonados por tecnologia e esportes, nossa empresa combina inovação, qualidade e design para criar tênis que atendem às necessidades dos mais diversos perfis de consumidores.</p>
+                        <p>Desde o início, acreditamos que cada passo importa. Por isso, desenvolvemos produtos que não apenas acompanham suas atividades, mas potencializam seu desempenho e estilo de vida.</p>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <div style="font-size: 10rem; color: var(--primary-color); opacity: 0.3;">
+                            <i class="fas fa-building"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-5">
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="benefit-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4>Inovação</h4>
+                        <p>Utilizamos as mais avançadas tecnologias em materiais e design para criar produtos únicos no mercado.</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="benefit-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4>Qualidade</h4>
+                        <p>Cada produto passa por rigorosos testes de qualidade para garantir durabilidade e conforto superiores.</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="benefit-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Conforto</h4>
+                        <p>Desenvolvemos tecnologias exclusivas de amortecimento e suporte para máximo conforto em cada pisada.</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h3 class="text-center mb-4">Nossa Equipe</h3>
+                        <div class="row">
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <h5>Carlos Mendes</h5>
+                                <p class="text-muted">CEO & Fundador</p>
+                                <p>Especialista em inovação tecnológica com mais de 15 anos de experiência no setor calçadista.</p>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <h5>Ana Rodrigues</h5>
+                                <p class="text-muted">Diretora de Design</p>
+                                <p>Designer renomada com formação internacional, responsável pela criação de nossos modelos exclusivos.</p>
+                            </div>
+                            <div class="col-md-4 text-center mb-4">
+                                <div class="testimonial-avatar">
+                                    <i class="fas fa-user-tie"></i>
+                                </div>
+                                <h5>Roberto Silva</h5>
+                                <p class="text-muted">Diretor Técnico</p>
+                                <p>Engenheiro especializado em biomecânica, desenvolve nossas tecnologias de conforto e performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-lg-12 text-center">
+                        <h3>Nossa Visão</h3>
+                        <p class="lead">Ser a marca de referência em calçados esportivos no Brasil, reconhecida pela inovação, sustentabilidade e compromisso com a satisfação dos nossos clientes. Trabalhamos continuamente para reduzir nosso impacto ambiental através de materiais sustentáveis e processos de produção responsáveis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PROMOTIONS PAGE -->
+    <div id="promotions-page" class="hidden-page">
+        <section class="page-section">
+            <div class="container">
+                <h1 class="section-title text-center">Promoções Especiais</h1>
+                
+                <!-- Current Promotions -->
+                <div class="row mb-5">
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-danger">
+                            <div class="card-header bg-danger text-white text-center">
+                                <h4><i class="fas fa-fire me-2"></i>LIQUIDAÇÃO DE FIM DE TEMPORADA</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <h2 class="text-danger">ATÉ 50% OFF</h2>
+                                <p>Em toda linha de tênis de inverno. Aproveite para renovar seu guarda-roupa com preços imperdíveis!</p>
+                                <button class="btn btn-danger btn-lg">Ver Produtos</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <div class="card border-success">
+                            <div class="card-header bg-success text-white text-center">
+                                <h4><i class="fas fa-gift me-2"></i>PRIMEIRA COMPRA</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <h2 class="text-success">15% OFF</h2>
+                                <p>Desconto especial para novos clientes. Use o cupom BEMVINDO15 na sua primeira compra!</p>
+                                <button class="btn btn-success btn-lg">Cadastrar-se</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Special Combos -->
+                <h2 class="text-center mb-4">Combos Especiais</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="card-header bg-warning text-center">
+                                <h5><i class="fas fa-star me-2"></i>COMBO RUNNER</h5>
+                            </div>
+                            <div class="product-image">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5>Tênis + Kit Corrida</h5>
+                                <p>Tênis profissional + meia esportiva + squeeze</p>
+                                <div class="mb-2">
+                                    <span class="h4 text-danger">R$ 329,90</span>
+                                    <small class="text-muted text-decoration-line-through ms-2">R$ 449,90</small>
+                                </div>
+                                <span class="badge bg-success mb-2">Economize R$ 120,00</span>
+                                <div class="d-grid">
+                                    <button class="btn btn-warning">Comprar Combo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="card-header bg-info text-white text-center">
+                                <h5><i class="fas fa-heart me-2"></i>COMBO FASHION</h5>
+                            </div>
+                            <div class="product-image">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5>Tênis + Acessórios</h5>
+                                <p>Tênis fashion + mochila + boné exclusivo</p>
+                                <div class="mb-2">
+                                    <span class="h4 text-danger">R$ 299,90</span>
+                                    <small class="text-muted text-decoration-line-through ms-2">R$ 399,90</small>
+                                </div>
+                                <span class="badge bg-success mb-2">Economize R$ 100,00</span>
+                                <div class="d-grid">
+                                    <button class="btn btn-info">Comprar Combo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card product-card h-100">
+                            <div class="card-header bg-primary text-white text-center">
+                                <h5><i class="fas fa-dumbbell me-2"></i>COMBO TRAINING</h5>
+                            </div>
+                            <div class="product-image">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5>Tênis + Kit Academia</h5>
+                                <p>Tênis training + toalha + luvas de treino</p>
+                                <div class="mb-2">
+                                    <span class="h4 text-danger">R$ 279,90</span>
+                                    <small class="text-muted text-decoration-line-through ms-2">R$ 359,90</small>
+                                </div>
+                                <span class="badge bg-success mb-2">Economize R$ 80,00</span>
+                                <div class="d-grid">
+                                    <button class="btn btn-primary">Comprar Combo</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter Signup -->
+                <div class="row mt-5">
+                    <div class="col-lg-8 mx-auto">
+                        <div class="card bg-light">
+                            <div class="card-body text-center p-4">
+                                <h3><i class="fas fa-envelope me-2"></i>Não Perca Nenhuma Promoção!</h3>
+                                <p>Cadastre-se em nossa newsletter e seja o primeiro a saber sobre ofertas exclusivas e lançamentos.</p>
+                                <form class="row g-3 justify-content-center" onsubmit="event.preventDefault(); alert('Obrigado! Você receberá nossas promoções em breve.');">
+                                    <div class="col-md-6">
+                                        <input type="email" class="form-control" placeholder="Seu melhor e-mail" required>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="submit" class="btn btn-custom w-100">Cadastrar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- BLOG PAGE -->
+    <div id="blog-page" class="hidden-page">
+        <section class="page-section">
+            <div class="container">
+                <h1 class="section-title text-center">Blog ShoeTech</h1>
+                
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card blog-card h-100">
+                            <div class="blog-image">
+                                <i class="fas fa-shoe-prints"></i>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge bg-primary mb-2">Dicas</span>
+                                <h5 class="card-title">Como Escolher o Tênis Ideal para Cada Ocasião</h5>
+                                <p class="card-text">Descubra qual modelo de tênis é perfeito para trabalho, academia, passeios e eventos especiais.</p>
+                                <small class="text-muted">Publicado em 15 de Janeiro, 2024</small>
+                                <div class="mt-3">
+                                    <button class="btn btn-outline-primary">Ler Mais</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card blog-card h-100">
+                            <div class="blog-image">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge bg-success mb-2">Cuidados</span>
+                                <h5 class="card-title">5 Dicas para Aumentar a Durabilidade do Seu Tênis</h5>
+                                <p class="card-text">Aprenda técnicas simples de limpeza e conservação que vão fazer seus tênis durarem muito mais tempo.</p>
+                                <small class="text-muted">Publicado em 10 de Janeiro, 2024</small>
+                                <div class="mt-3">
+                                    <button class="btn btn-outline-primary">Ler Mais</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card blog-card h-100">
+                            <div class="blog-image">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge bg-warning mb-2">Tendências</span>
+                                <h5 class="card-title">Tendências de Tênis para 2024: O que Está em Alta</h5>
+                                <p class="card-text">Conheça as principais tendências de cores, materiais e designs que vão dominar este ano.</p>
+                                <small class="text-muted">Publicado em 5 de Janeiro, 2024</small>
+                                <div class="mt-3">
+                                    <button class="btn btn-outline-primary">Ler Mais</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card blog-card h-100">
+                            <div class="blog-image">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge bg-info mb-2">Esportes</span>
+                                <h5 class="card-title">Tênis de Corrida: Tecnologias que Fazem a Diferença</h5>
+                                <p class="card-text">Entenda as principais tecnologias em tênis de corrida e como elas podem melhorar seu desempenho.</p>
+                                <small class="text-muted">Publicado em 28 de Dezembro, 2023</small>
+                                <div class="mt-3">
+                                    <button class="btn btn-outline-primary">Ler Mais</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card blog-card h-100">
+                            <div class="blog-image">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge bg-success mb-2">Sustentabilidade</span>
+                                <h5 class="card-title">Moda Sustentável: Tênis Ecológicos em Ascensão</h5>
+                                <p class="card-text">Descubra como a indústria calçadista está se adaptando para ser mais sustentável e ecológica.</p>
+                                <small class="text-muted">Publicado em 20 de Dezembro, 2023</small>
+                                <div class="mt-3">
+                                    <button class="btn btn-outline-primary">Ler Mais</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card blog-card h-100">
+                            <div class="blog-image">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <div class="card-body">
+                                <span class="badge bg-danger mb-2">Estilo</span>
+                                <h5 class="card-title">Como Combinar Tênis com Diferentes Estilos de Roupa</h5>
+                                <p class="card-text">Dicas de styling para criar looks incríveis combinando tênis com roupas casuais e sociais.</p>
+                                <small class="text-muted">Publicado em 15 de Dezembro, 2023</small>
+                                <div class="mt-3">
+                                    <button class="btn btn-outline-primary">Ler Mais</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <nav class="mt-4">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#">Anterior</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Próximo</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact-page" class="hidden-page">
+        <section class="page-section">
+            <div class="container">
+                <h1 class="section-title text-center">Entre em Contato</h1>
+                
+                <div class="row">
+                    <div class="col-lg-8 mb-4">
+                        <div class="contact-form">
+                            <h3 class="mb-4">Envie sua Mensagem</h3>
+                            <form onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">Nome Completo *</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">E-mail *</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="phone" class="form-label">Telefone (Opcional)</label>
+                                        <input type="tel" class="form-control" id="phone" placeholder="(11) 99999-9999">
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="subject" class="form-label">Assunto *</label>
+                                        <select class="form-select" id="subject" required>
+                                            <option value="">Selecione um assunto</option>
+                                            <option value="duvida">Dúvida sobre produto</option>
+                                            <option value="pedido">Acompanhar pedido</option>
+                                            <option value="troca">Troca/Devolução</option>
+                                            <option value="sugestao">Sugestão</option>
+                                            <option value="reclamacao">Reclamação</option>
+                                            <option value="outro">Outro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Mensagem *</label>
+                                    <textarea class="form-control" id="message" rows="5" placeholder="Descreva sua dúvida ou mensagem..." required></textarea>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="newsletter">
+                                    <label class="form-check-label" for="newsletter">
+                                        Desejo receber ofertas e novidades por e-mail
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-custom btn-lg">
+                                    <i class="fas fa-paper-plane me-2"></i>Enviar Mensagem
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="contact-form">
+                            <h3 class="mb-4">Informações de Contato</h3>
+                            
+                            <div class="mb-4">
+                                <h5><i class="fas fa-map-marker-alt text-danger me-2"></i>Endereço</h5>
+                                <p>Rua das Tecnologias, 123<br>
+                                Bairro Inovação<br>
+                                São Paulo - SP<br>
+                                CEP: 01234-567</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5><i class="fas fa-phone text-success me-2"></i>Telefones</h5>
+                                <p>
+                                    <strong>Vendas:</strong> (11) 3333-4444<br>
+                                    <strong>SAC:</strong> (11) 3333-5555<br>
+                                    <strong>WhatsApp:</strong> (11) 99999-8888
+                                </p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5><i class="fas fa-envelope text-primary me-2"></i>E-mails</h5>
+                                <p>
+                                    <strong>Vendas:</strong> vendas@shoetech.com.br<br>
+                                    <strong>Suporte:</strong> suporte@shoetech.com.br<br>
+                                    <strong>Geral:</strong> contato@shoetech.com.br
+                                </p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h5><i class="fas fa-clock text-warning me-2"></i>Horário de Funcionamento</h5>
+                                <p>
+                                    <strong>Segunda a Sexta:</strong> 8h às 18h<br>
+                                    <strong>Sábado:</strong> 9h às 15h<br>
+                                    <strong>Domingo:</strong> Fechado
+                                </p>
+                            </div>
+                            
+                            <div class="text-center">
+                                <h5>Siga-nos nas Redes Sociais</h5>
+                                <div class="social-icons">
+                                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Map Placeholder -->
+                        <div class="contact-form mt-4">
+                            <h5 class="mb-3">Nossa Localização</h5>
+                            <div class="bg-light p-4 text-center rounded" style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                                <div>
+                                    <i class="fas fa-map text-muted" style="font-size: 3rem;"></i>
+                                    <p class="text-muted mt-2">Mapa interativo<br>em breve</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>ShoeTech</h5>
+                    <p>Encontre o par perfeito para o seu estilo. Qualidade, conforto e inovação em cada produto.</p>
+                    <div class="social-icons">
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6>Links Úteis</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none" onclick="showPage('about')">Sobre Nós</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Termos e Condições</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Política de Privacidade</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Trocas e Devoluções</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6>Atendimento</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none" onclick="showPage('contact')">Contato</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Rastrear Pedido</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Suporte</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h6>Newsletter</h6>
+                    <p>Receba descontos exclusivos e novidades!</p>
+                    <form class="d-flex" onsubmit="event.preventDefault(); alert('Obrigado! Você receberá nossas novidades em breve.');">
+                        <input type="email" class="form-control me-2" placeholder="Seu e-mail" required>
+                        <button class="btn btn-custom" type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 ShoeTech. Todos os direitos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">Desenvolvido com <i class="fas fa-heart text-danger"></i> para você</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div class="modal fade" id="cartModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shopping-cart me-2"></i>Meu Carrinho
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="cart-items">
+                        <!-- Cart items will be populated here -->
+                    </div>
+                    <div id="empty-cart" class="text-center py-5" style="display: none;">
+                        <i class="fas fa-shopping-cart text-muted" style="font-size: 4rem;"></i>
+                        <h4 class="text-muted mt-3">Seu carrinho está vazio</h4>
+                        <p class="text-muted">Adicione alguns produtos incríveis!</p>
+                        <button class="btn btn-custom" data-bs-dismiss="modal" onclick="showPage('shop')">
+                            Ir às Compras
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-footer" id="cart-footer">
+                    <div class="w-100">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <h4 class="mb-0">Total: <span id="cart-total" class="text-danger">R$ 0,00</span></h4>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <button type="button" class="btn btn-outline-secondary me-2" onclick="clearCart()">
+                                    Limpar Carrinho
+                                </button>
+                                <button type="button" class="btn btn-custom btn-lg" onclick="checkout()">
+                                    <i class="fas fa-credit-card me-2"></i>Finalizar Compra
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Newsletter Modal -->
+    <div class="modal fade" id="newsletterModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center p-4">
+                    <div class="mb-3">
+                        <i class="fas fa-gift text-danger" style="font-size: 3rem;"></i>
+                    </div>
+                    <h3>Ganhe 10% OFF na sua primeira compra!</h3>
+                    <p>Cadastre-se em nossa newsletter e receba um cupom de desconto exclusivo.</p>
+                    <form onsubmit="event.preventDefault(); alert('Parabéns! Você ganhou 10% OFF. Verifique seu e-mail.'); bootstrap.Modal.getInstance(document.getElementById('newsletterModal')).hide();">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" placeholder="Digite seu melhor e-mail" required>
+                        </div>
+                        <button type="submit" class="btn btn-custom btn-lg w-100">Quero Meu Desconto!</button>
+                    </form>
+                    <small class="text-muted mt-2 d-block">Não enviamos spam. Você pode cancelar a qualquer momento.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = ['home', 'shop', 'about', 'promotions', 'blog', 'contact'];
+            pages.forEach(page => {
+                const element = document.getElementById(page + '-page');
+                if (element) {
+                    element.classList.remove('current-page');
+                    element.classList.add('hidden-page');
+                }
+            });
+            
+            // Show selected page
+            const targetPage = document.getElementById(pageId + '-page');
+            if (targetPage) {
+                targetPage.classList.remove('hidden-page');
+                targetPage.classList.add('current-page');
+            }
+            
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Find and activate the correct nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                if (link.onclick && link.onclick.toString().includes(pageId)) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Show newsletter modal after 3 seconds
+        setTimeout(() => {
+            const modal = new bootstrap.Modal(document.getElementById('newsletterModal'));
+            modal.show();
+        }, 3000);
+
+        // Cart functionality
+        let cart = [];
+        let cartTotal = 0;
+
+        // Product database
+        const products = {
+            'runner-pro': {
+                id: 'runner-pro',
+                name: 'Tênis Runner Pro',
+                price: 299.90,
+                originalPrice: 399.90,
+                image: 'fas fa-running',
+                description: 'Tênis profissional para corrida com tecnologia de amortecimento avançada.'
+            },
+            'urban-style': {
+                id: 'urban-style',
+                name: 'Tênis Urban Style',
+                price: 199.90,
+                image: 'fas fa-walking',
+                description: 'Design moderno e confortável para uso diário na cidade.'
+            },
+            'fashion-elite': {
+                id: 'fashion-elite',
+                name: 'Tênis Fashion Elite',
+                price: 349.90,
+                image: 'fas fa-star',
+                description: 'Tendência em calçados com design exclusivo e materiais premium.'
+            },
+            'sport-max': {
+                id: 'sport-max',
+                name: 'Tênis Sport Max',
+                price: 279.90,
+                image: 'fas fa-basketball-ball',
+                description: 'Ideal para atividades esportivas com máximo suporte e flexibilidade.'
+            },
+            'feminino-deluxe': {
+                id: 'feminino-deluxe',
+                name: 'Tênis Feminino Deluxe',
+                price: 229.90,
+                image: 'fas fa-heart',
+                description: 'Elegância e conforto especialmente desenvolvido para o público feminino.'
+            },
+            'training-force': {
+                id: 'training-force',
+                name: 'Tênis Training Force',
+                price: 259.90,
+                image: 'fas fa-dumbbell',
+                description: 'Resistente e versátil para treinos intensos e atividades fitness.'
+            },
+            'corrida': {
+                id: 'corrida',
+                name: 'Tênis para Corrida',
+                price: 299.90,
+                originalPrice: 399.90,
+                image: 'fas fa-running',
+                description: 'Tecnologia avançada para máximo desempenho'
+            },
+            'casuais': {
+                id: 'casuais',
+                name: 'Tênis Casuais',
+                price: 199.90,
+                image: 'fas fa-walking',
+                description: 'Estilo e conforto para o dia a dia'
+            },
+            'moda': {
+                id: 'moda',
+                name: 'Tênis de Moda',
+                price: 249.90,
+                image: 'fas fa-star',
+                description: 'Tendências atuais em design exclusivo'
+            }
+        };
+
+        function addToCart(productId) {
+            const product = products[productId];
+            if (!product) return;
+
+            // Check if product already exists in cart
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
+                });
+            }
+
+            updateCartUI();
+            showToast('Produto adicionado ao carrinho!', 'success');
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartUI();
+            showToast('Produto removido do carrinho!', 'info');
+        }
+
+        function updateQuantity(productId, newQuantity) {
+            if (newQuantity <= 0) {
+                removeFromCart(productId);
+                return;
+            }
+
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity = newQuantity;
+                updateCartUI();
+            }
+        }
+
+        function updateCartUI() {
+            const cartBadge = document.getElementById('cart-badge');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const emptyCart = document.getElementById('empty-cart');
+            const cartFooter = document.getElementById('cart-footer');
+
+            // Update badge
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartBadge.textContent = totalItems;
+            cartBadge.style.display = totalItems > 0 ? 'block' : 'none';
+
+            // Calculate total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            if (cart.length === 0) {
+                emptyCart.style.display = 'block';
+                cartItems.style.display = 'none';
+                cartFooter.style.display = 'none';
+            } else {
+                emptyCart.style.display = 'none';
+                cartItems.style.display = 'block';
+                cartFooter.style.display = 'block';
+                
+                // Update cart items
+                cartItems.innerHTML = cart.map(item => `
+                    <div class="card mb-3">
+                        <div class="card-body p-3">
+                            <div class="row align-items-center">
+                                <div class="col-md-2 col-12 text-center mb-2 mb-md-0">
+                                    <div style="font-size: 2rem; color: var(--primary-color);">
+                                        <i class="${item.image}"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12 mb-2 mb-md-0">
+                                    <h6 class="card-title mb-1">${item.name}</h6>
+                                    <small class="text-muted">${item.description}</small>
+                                </div>
+                                <div class="col-md-3 col-6 mb-2 mb-md-0">
+                                    <label class="form-label small text-muted d-block d-md-none">Quantidade:</label>
+                                    <div class="input-group input-group-sm">
+                                        <button class="btn btn-outline-secondary px-2 py-1" onclick="updateQuantity('${item.id}', ${item.quantity - 1})" style="min-width: 32px; font-size: 0.8rem;">-</button>
+                                        <input type="text" class="form-control text-center px-1" value="${item.quantity}" readonly style="max-width: 45px; font-size: 0.85rem;">
+                                        <button class="btn btn-outline-secondary px-2 py-1" onclick="updateQuantity('${item.id}', ${item.quantity + 1})" style="min-width: 32px; font-size: 0.8rem;">+</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-6 text-center mb-2 mb-md-0">
+                                    <label class="form-label small text-muted d-block d-md-none">Subtotal:</label>
+                                    <strong class="text-danger">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</strong>
+                                    ${item.originalPrice ? `<br><small class="text-muted text-decoration-line-through">R$ ${(item.originalPrice * item.quantity).toFixed(2).replace('.', ',')}</small>` : ''}
+                                </div>
+                                <div class="col-md-1 col-12 text-center">
+                                    <label class="form-label small text-muted d-block d-md-none">Remover:</label>
+                                    <button class="btn btn-outline-danger btn-sm px-2 py-1" onclick="removeFromCart('${item.id}')" style="font-size: 0.8rem;">
+                                        <i class="fas fa-trash" style="font-size: 0.75rem;"></i>
+                                        <span class="d-md-none ms-1">Remover</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Update total
+            cartTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+
+        function openCart() {
+            const modal = new bootstrap.Modal(document.getElementById('cartModal'));
+            modal.show();
+        }
+
+        function clearCart() {
+            if (cart.length === 0) return;
+            
+            if (confirm('Tem certeza que deseja limpar o carrinho?')) {
+                cart = [];
+                updateCartUI();
+                showToast('Carrinho limpo!', 'info');
+            }
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showToast('Seu carrinho está vazio!', 'warning');
+                return;
+            }
+
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            
+            alert(`🛒 Finalizando compra!\n\n📦 ${itemCount} item(s) no carrinho\n💰 Total: R$ ${total.toFixed(2).replace('.', ',')}\n\n✅ Redirecionando para o pagamento...`);
+            
+            // Simulate checkout process
+            setTimeout(() => {
+                cart = [];
+                updateCartUI();
+                bootstrap.Modal.getInstance(document.getElementById('cartModal')).hide();
+                showToast('Compra finalizada com sucesso! Obrigado pela preferência!', 'success');
+            }, 1000);
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.createElement('div');
+            const bgClass = type === 'success' ? 'alert-success' : type === 'warning' ? 'alert-warning' : type === 'info' ? 'alert-info' : 'alert-danger';
+            const icon = type === 'success' ? 'fa-check-circle' : type === 'warning' ? 'fa-exclamation-triangle' : type === 'info' ? 'fa-info-circle' : 'fa-times-circle';
+            
+            toast.className = `position-fixed top-0 end-0 m-3 alert ${bgClass} alert-dismissible fade show`;
+            toast.style.zIndex = '9999';
+            toast.innerHTML = `
+                <i class="fas ${icon} me-2"></i>${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 4000);
+        }
+
+        // Initialize cart
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartUI();
+        });
+
+        // Search functionality
+        document.querySelector('.btn-outline-secondary').addEventListener('click', function() {
+            const searchTerm = document.querySelector('input[placeholder="Buscar tênis..."]').value;
+            if (searchTerm.trim()) {
+                alert(`Buscando por: "${searchTerm}"`);
+                showPage('shop');
+            }
+        });
+
+        // Enter key search
+        document.querySelector('input[placeholder="Buscar tênis..."]').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value;
+                if (searchTerm.trim()) {
+                    alert(`Buscando por: "${searchTerm}"`);
+                    showPage('shop');
+                }
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99308817667c5326',t:'MTc2MTIxNTEzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
