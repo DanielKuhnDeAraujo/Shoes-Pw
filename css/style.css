@@ -211,6 +211,13 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+.formatar {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
 .blog-card {
     border: none;
     border-radius: 15px;
@@ -256,4 +263,3 @@ body {
   overflow: hidden;               /* mantém o border-radius */
   border-radius: 15px;
 }
-

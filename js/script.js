@@ -1,15 +1,44 @@
 
-window.onload = function() {
-            if (window.location.pathname.includes('shop.html?search=') || document.querySelector('.filter-section')) {
-                
-                 // Cria um objeto URLSearchParams com base na query string da URL atual
-                const params = new URLSearchParams(window.location.search);
+window.onload = function () {
+    if (window.location.pathname.includes('shop.html?search=') || document.querySelector('.filter-section')) {
 
-            // Obtém os valores dos parâmetros pelos seus nomes ('nome' e 'email')
-                const term = params.get('search');
-                filterProductsBySearch(term);
-            }
-}
+        // Cria um objeto URLSearchParams com base na query string da URL atual
+        const params = new URLSearchParams(window.location.search);
+
+        // Obtém os valores dos parâmetros pelos seus nomes ('nome' e 'email')
+        const term = params.get('search');
+        filterProductsBySearch(term);
+    }
+    if (window.location.pathname.includes('formatar.html')) {
+
+        // Cria um objeto URLSearchParams com base na query string da URL atual
+        const params = new URLSearchParams(window.location.search);
+
+        // Obtém os valores dos parâmetros pelos seus nomes ('nome' e 'email')
+        const nome = params.get('nome');
+        const email = params.get('email');
+        const cep = params.get('cep');
+        const assunto = params.get('assunto');
+        const msg = params.get('msg');
+
+        // Exibe os valores nos elementos HTML correspondentes
+
+        document.getElementById('nome').innerHTML = nome;
+
+        if (email) {
+            document.getElementById('email').innerText = email;
+        }
+        if (cep) {
+            document.getElementById('cep').textContent = cep;
+        }
+        if (msg) {
+            document.getElementById('msg').innerText = msg;
+        }
+        if (assunto) {
+            document.getElementById('assunto').innerText = assunto;
+        }
+    }
+};
 // Product database
 const products = {
     'runner-pro': {
@@ -636,20 +665,20 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (() => {
-  'use strict'
+    'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
 
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
 
-      form.classList.add('was-validated')
-    }, false)
-  })
+            form.classList.add('was-validated')
+        }, false)
+    })
 })()
